@@ -5,22 +5,35 @@ def display(board):
 
 def escolha():
 
-    x = int(input('Digite a linha da sua marca:\n'))
-    y = int(input('Digite a coluna da sua marca:\n'))
+    x = 'not digit'
+    y = 'not digit'
 
-    while  x < 1 or x > 3 or y < 1 or y > 3:
+    while x.isdigit() == False or y.isdigit() == False:
 
-        x = int(input('Selecione uma linha válida\n'))
-        y = int(input('Selecione uma coluna válida\n'))
-    
-    return x - 1, y - 1
+        x = input('Digite a linha da sua marca:\n')
+        y = input('Digite a coluna da sua marca:\n')
+
+    while int(x) < 1 or int(x) > 3 or int(y) < 1 or int(y) > 3:
+
+        x = input('Selecione uma linha válida\n')
+        y = input('Selecione uma coluna válida\n')
+
+        if x.isdigit() == True and y.isdigit() == True:
+            if int(x) < 1 or int(x) > 3 or int(y) < 1 or int(y) > 3:
+                continue
+        else: 
+            while x.isdigit() == False or y.isdigit() == False:
+                x = input('Digite a linha da sua marca:\n')
+                y = input('Digite a coluna da sua marca:\n')
+
+
+    return int(x) - 1, int(y) - 1
 
 
 
 def movimento(contador):
 
     x,y = escolha()
-    
     
     if contador%2 != 0 and board[x][y] == ' ':
         board[x][y] = 'O'
@@ -58,3 +71,7 @@ while contador < 10:
     elif board[0][0] + board [0][1] + board [0][2] == 'OOO' or board[1][0] + board [1][1] + board [1][2] == 'OOO' or board[2][0] + board [2][1] + board [2][2] == 'OOO' or board[0][0] + board [1][0] + board [2][0] == 'OOO' or board[0][1] + board [1][1] + board [2][1] == 'OOO' or board[0][2] + board [1][2] + board [2][2] == 'OOO' or board[0][0] + board [1][1] + board [2][2] == 'OOO' or board[0][2] + board [1][1] + board [2][0] == 'OOO': 
         print('O venceu')
         break
+
+
+
+    #int(x) in [1,2,3] == False or int(y) in [1,2,3] == False: // isso era a condição do segundo while
