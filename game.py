@@ -39,14 +39,6 @@ def movimento(contador):
 
     display(board)
 
-###
-
-if board[1][1] + board [1][2] + board [1][3] == 'XXX' or board[2][1] + board [2][2] + board [2][3] == 'XXX' or board[3][1] + board [3][2] + board [3][3] == 'XXX' or board[1][1] + board [2][1] + board [3][1] == 'XXX' or board[1][2] + board [2][2] + board [3][2] == 'XXX' or board[1][3] + board [2][3] + board [3][3] == 'XXX' or board[1][1] + board [2][2] + board [3][3] == 'XXX' or board[1][3] + board [2][2] + board [3][1] == 'XXX':
-    
-
-
-###
-
 #Início da lógica
 #OBS: Esse código apresenta erros quando input não for inteiro ou estiver fora do range
 
@@ -59,3 +51,10 @@ while contador < 10:
 
     movimento(contador)
     contador += 1
+
+    if board[0][0] + board [0][1] + board [0][2] == 'XXX' or board[1][0] + board [1][1] + board [1][2] == 'XXX' or board[2][0] + board [2][1] + board [2][2] == 'XXX' or board[0][0] + board [1][0] + board [2][0] == 'XXX' or board[0][1] + board [1][1] + board [2][1] == 'XXX' or board[0][2] + board [1][2] + board [2][2] == 'XXX' or board[0][0] + board [1][1] + board [2][2] == 'XXX' or board[0][2] + board [1][1] + board [2][0] == 'XXX':
+        print('X venceu')
+        break
+    elif board[0][0] + board [0][1] + board [0][2] == 'OOO' or board[1][0] + board [1][1] + board [1][2] == 'OOO' or board[2][0] + board [2][1] + board [2][2] == 'OOO' or board[0][0] + board [1][0] + board [2][0] == 'OOO' or board[0][1] + board [1][1] + board [2][1] == 'OOO' or board[0][2] + board [1][2] + board [2][2] == 'OOO' or board[0][0] + board [1][1] + board [2][2] == 'OOO' or board[0][2] + board [1][1] + board [2][0] == 'OOO': 
+        print('O venceu')
+        break
